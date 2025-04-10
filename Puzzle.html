@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Phrase Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .notepad {
+            margin-top: 40px;
+            width: 80%;
+            height: 150px;
+            border: 2px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the phrase!</h1>
+    <p>___! do ___ ___ to ___ ___ I ___ ___ ___?</p>
+    <input type="text" id="userAnswer" placeholder="Enter your answer here">
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="message" class="message"></div>
+
+    <h2>Notepad</h2>
+    <textarea class="notepad" placeholder="Write your clues or notes here..."></textarea>
+
+    <script>
+        function checkAnswer() {
+            var userAnswer = document.getElementById("userAnswer").value.trim().toLowerCase();
+            var correctAnswer = "hey! do you want to know what i think about you?";
+            var messageElement = document.getElementById("message");
+
+            if (userAnswer === correctAnswer) {
+                messageElement.textContent = "https://drive.google.com/file/d/1ljxm2I70oYy1EyFOqDMLre728gSHAq3o/view?usp=drive_link";
+                messageElement.className = "message correct";
+            } else {
+                messageElement.textContent = "Try again!";
+                messageElement.className = "message incorrect";
+            }
+        }
+    </script>
+</body>
+</html>
